@@ -16,7 +16,7 @@ public class AnimalGuardianService {
     private final AnimalGuardianRepository animalGuardianRepository;
 
     public void save(AnimalGuardianRequest request) {
-        if (animalGuardianRepository.existByName(request.name())) {
+        if (animalGuardianRepository.existsByName(request.name())) {
             throw new ValidationException("AnimalGuardian with name " + request.name() + " already exists");
         }
 

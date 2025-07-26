@@ -1,9 +1,10 @@
+version: "3.8"
 services:
   postgres:
-    image: 'postgres:latest'
-    environment:
-      - 'POSTGRES_DB=peti9'
-      - 'POSTGRES_PASSWORD=123'
-      - 'POSTGRES_USER=postgres'
+    image: postgres:latest
     ports:
-      - '5432'
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres

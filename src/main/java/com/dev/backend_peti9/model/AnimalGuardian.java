@@ -2,16 +2,16 @@ package com.dev.backend_peti9.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class AnimalGuardian extends BaseEntity{
 
@@ -19,7 +19,7 @@ public class AnimalGuardian extends BaseEntity{
 
     private String surname;
 
-    private LocalDateTime birthDate;
+    private LocalDate birthDate;
 
     @OneToMany(mappedBy = "animalGuardian")
     private List<Animal> animals;

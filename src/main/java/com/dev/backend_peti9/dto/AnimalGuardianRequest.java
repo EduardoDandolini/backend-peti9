@@ -1,6 +1,9 @@
 package com.dev.backend_peti9.dto;
 
-import java.time.LocalDateTime;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-public record AnimalGuardianRequest(String name, String surname, LocalDateTime birthDate) {
+import java.time.LocalDate;
+
+public record AnimalGuardianRequest(String name, String surname, @JsonFormat(pattern = "dd/MM/yyyy") LocalDate birthDate) {
+
 }

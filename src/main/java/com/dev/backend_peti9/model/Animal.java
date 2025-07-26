@@ -3,16 +3,16 @@ package com.dev.backend_peti9.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class Animal extends BaseEntity {
 
@@ -20,13 +20,13 @@ public class Animal extends BaseEntity {
 
     private String race;
 
-    private LocalDateTime birthDate;
+    private LocalDate birthDate;
 
     private String color;
 
     private Double weight;
 
-    private List<LocalDateTime> vaccinationDates;
+    private List<LocalDate> vaccinationDates;
 
     private String typeVaccine;
 
