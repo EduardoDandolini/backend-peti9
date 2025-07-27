@@ -6,6 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -14,6 +15,6 @@ public interface AnimalGuardianRepository extends CrudRepository<AnimalGuardian,
     boolean existsByName(String name);
 
     @Query("SELECT a FROM AnimalGuardian a WHERE LOWER(a.name) LIKE %:name%")
-    Optional<AnimalGuardian> findByLikedName(@Param("name") String name);
+    List<AnimalGuardian> findByLikedName(@Param("name") String name);
 
 }

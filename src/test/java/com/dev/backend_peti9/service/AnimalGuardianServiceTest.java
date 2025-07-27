@@ -14,7 +14,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -37,16 +39,16 @@ class AnimalGuardianServiceTest {
     @BeforeEach
     void setUp() {
         animalGuardian = AnimalGuardian.builder()
-                .name("John")
-                .surname("Doe")
-                .birthDate(LocalDate.of(1990, 1, 1))
+                .name("Eduardo")
+                .surname("Edu")
+                .birthDate(LocalDate.of(2004, 12, 6))
                 .animals(Collections.emptyList())
                 .build();
 
         request = new AnimalGuardianRequest();
-        request.setName("John");
-        request.setSurname("Doe");
-        request.setBirthDate(LocalDate.of(1990, 1, 1));
+        request.setName("Eduardo");
+        request.setSurname("Edu");
+        request.setBirthDate(LocalDate.of(2004, 12, 6));
     }
 
     @Test
@@ -96,25 +98,34 @@ class AnimalGuardianServiceTest {
     }
 
     @Test
-    void getAnimalGuardianByLikedName_ShouldReturnAnimalGuardian_WhenNameExists() {
-        when(animalGuardianRepository.findByLikedName("John")).thenReturn(Optional.of(animalGuardian));
+    void getAnimalGuardianByLikedName_ShouldReturnListOfAnimalGuardians_WhenNameMatches() {
+        List<AnimalGuardian> animalGuardians = Arrays.asList(
+                animalGuardian,
+                AnimalGuardian.builder()
+                        .name("Eduarda")
+                        .surname("Duda")
+                        .birthDate(LocalDate.of(2005, 1, 1))
+                        .animals(Collections.emptyList())
+                        .build()
+        );
 
-        AnimalGuardianResponse response = animalGuardianService.getAnimalGuardianByLikedName("John");
+        when(animalGuardianRepository.findByLikedName("edu")).thenReturn(animalGuardians);
 
-        assertNotNull(response);
-        assertEquals(animalGuardian.getId(), response.getId());
-        assertEquals(animalGuardian.getName(), response.getName());
-        assertEquals(animalGuardian.getSurname(), response.getSurname());
-        assertEquals(animalGuardian.getBirthDate(), response.getBirthDate());
+        List<AnimalGuardianResponse> responses = animalGuardianService.getAnimalGuardianByLikedName("edu");
+
+        assertNotNull(responses);
+        assertEquals(2, responses.size());
+        assertEquals(animalGuardian.getName(), responses.get(0).getName());
+        assertEquals("Eduarda", responses.get(1).getName());
     }
 
     @Test
-    void getAnimalGuardianByLikedName_ShouldThrowNotFoundException_WhenNameNotExists() {
-        when(animalGuardianRepository.findByLikedName("NonExistent")).thenReturn(Optional.empty());
+    void getAnimalGuardianByLikedName_ShouldThrowNotFoundException_WhenNoMatchFound() {
+        when(animalGuardianRepository.findByLikedName("nonexistent")).thenReturn(Collections.emptyList());
 
         NotFoundException exception = assertThrows(NotFoundException.class,
-                () -> animalGuardianService.getAnimalGuardianByLikedName("NonExistent"));
+                () -> animalGuardianService.getAnimalGuardianByLikedName("nonexistent"));
 
-        assertEquals("AnimalGuardian with name NonExistent not found", exception.getMessage());
+        assertEquals("No AnimalGuardian found with name containing: nonexistent", exception.getMessage());
     }
 }

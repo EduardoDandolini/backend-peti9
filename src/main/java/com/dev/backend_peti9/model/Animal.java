@@ -2,10 +2,7 @@ package com.dev.backend_peti9.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -30,7 +27,7 @@ public class Animal extends BaseEntity {
 
     private Double weight;
 
-    @OneToMany(mappedBy = "animal")
+    @OneToMany(mappedBy = "animal", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Vaccine> vaccines = new ArrayList<>();
 

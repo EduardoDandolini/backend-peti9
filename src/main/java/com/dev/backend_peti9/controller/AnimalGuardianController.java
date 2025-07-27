@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/animal-guardian")
 @RequiredArgsConstructor
@@ -36,8 +38,12 @@ public class AnimalGuardianController {
 
     @GetMapping("/name/{name}")
     @Operation(summary = "Get an AnimalGuardian by name", description = "Get an AnimalGuardian by name")
-    public ResponseEntity<AnimalGuardianResponse> getAnimalGuardianByLikedName(@PathVariable String name) {
-        return ResponseEntity.ok(animalGuardianService.getAnimalGuardianByLikedName(name));
+    public ResponseEntity<List<AnimalGuardianResponse>> getAnimalGuardianByLikedName(@PathVariable String name) {
+        try {
+            return ResponseEntity.ok(animalGuardianService.getAnimalGuardianByLikedName(name));
+        } catch (Exception e) {
+           return ResponseEntity.badRequest().build();
+        }
     }
 
 }

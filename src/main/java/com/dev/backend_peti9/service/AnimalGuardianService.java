@@ -9,6 +9,9 @@ import com.dev.backend_peti9.repository.AnimalGuardianRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class AnimalGuardianService {
@@ -34,10 +37,14 @@ public class AnimalGuardianService {
         return mapToAnimalGuardianResponse(animalGuardian);
     }
 
-    public AnimalGuardianResponse getAnimalGuardianByLikedName(String name) {
-        AnimalGuardian animalGuardian = animalGuardianRepository.findByLikedName(name)
-                .orElseThrow(() -> new NotFoundException("AnimalGuardian with name " + name + " not found"));
-        return mapToAnimalGuardianResponse(animalGuardian);
+    public List<AnimalGuardianResponse> getAnimalGuardianByLikedName(String name) {
+        List<AnimalGuardian> animalGuardianList = animalGuardianRepository.findByLikedName(name.toLowerCase());
+        if (animalGuardianList.isEmpty()) {
+            throw new NotFoundException("No AnimalGuardian found with name containing: " + name);
+        }
+        return animalGuardianList.stream()
+                .map(this::mapToAnimalGuardianResponse)
+                .toList();
     }
 
     private AnimalGuardianResponse mapToAnimalGuardianResponse(AnimalGuardian animalGuardian) {
