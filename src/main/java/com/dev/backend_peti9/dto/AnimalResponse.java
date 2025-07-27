@@ -1,7 +1,6 @@
 package com.dev.backend_peti9.dto;
 
-import com.dev.backend_peti9.model.Animal;
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.dev.backend_peti9.model.Vaccine;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -10,17 +9,19 @@ import java.util.List;
 
 @Getter
 @AllArgsConstructor
-public class AnimalGuardianResponse {
+public class AnimalResponse {
 
     private Long id;
 
     private String name;
 
-    private String surname;
+    private String race;
 
-    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate birthDate;
 
-    private List<Animal> animals;
+    private String color;
 
+    private Double weight;
+
+    private List<Vaccine> vaccines;
 }

@@ -1,11 +1,15 @@
 package com.dev.backend_peti9.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,12 +30,13 @@ public class Animal extends BaseEntity {
 
     private Double weight;
 
-    private List<LocalDate> vaccinationDates;
-
-    private String typeVaccine;
+    @OneToMany(mappedBy = "animal")
+    @JsonManagedReference
+    private List<Vaccine> vaccines = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "animal_guardian_id")
+    @JsonBackReference
     private AnimalGuardian animalGuardian;
 
 }

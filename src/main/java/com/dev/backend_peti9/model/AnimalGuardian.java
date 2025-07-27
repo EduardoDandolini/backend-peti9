@@ -1,5 +1,6 @@
 package com.dev.backend_peti9.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import lombok.*;
@@ -22,6 +23,7 @@ public class AnimalGuardian extends BaseEntity{
     private LocalDate birthDate;
 
     @OneToMany(mappedBy = "animalGuardian")
+    @JsonManagedReference
     private List<Animal> animals;
 
 }

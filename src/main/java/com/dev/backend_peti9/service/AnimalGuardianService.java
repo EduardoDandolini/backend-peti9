@@ -16,14 +16,14 @@ public class AnimalGuardianService {
     private final AnimalGuardianRepository animalGuardianRepository;
 
     public void save(AnimalGuardianRequest request) {
-        if (animalGuardianRepository.existsByName(request.name())) {
-            throw new ValidationException("AnimalGuardian with name " + request.name() + " already exists");
+        if (animalGuardianRepository.existsByName(request.getName())) {
+            throw new ValidationException("AnimalGuardian with name " + request.getName() + " already exists");
         }
 
         AnimalGuardian animalGuardian = AnimalGuardian.builder()
-                .name(request.name())
-                .surname(request.surname())
-                .birthDate(request.birthDate())
+                .name(request.getName())
+                .surname(request.getSurname())
+                .birthDate(request.getBirthDate())
                 .build();
         animalGuardianRepository.save(animalGuardian);
     }
