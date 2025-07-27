@@ -33,7 +33,11 @@ public class AnimalController {
     @GetMapping("/{id}")
     @Operation(summary = "Get an Animal by id", description = "Get an Animal by id")
     public ResponseEntity<AnimalResponse> getAnimalById(@PathVariable Long id) {
-        return ResponseEntity.ok(animalService.getAnimalById(id));
+        try {
+            return ResponseEntity.ok(animalService.getAnimalById(id));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @GetMapping("/name/{name}")

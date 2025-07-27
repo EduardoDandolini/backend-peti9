@@ -24,7 +24,7 @@ public class AnimalService {
         AnimalGuardian animalGuardian = animalGuardianRepository.findById(request.getAnimalGuardianId())
                 .orElseThrow(() -> new NotFoundException("AnimalGuardian with id " + request.getAnimalGuardianId() + " not found"));
 
-        if (animalRepository.existsByName(request.getName()) && animalGuardian.getId().equals(request.getAnimalGuardianId())) {
+        if (animalRepository.existsByNameAndAnimalGuardianId(request.getName(), request.getAnimalGuardianId())) {
             throw new ValidationException("Animal with name " + request.getName() + " already exists");
         }
 

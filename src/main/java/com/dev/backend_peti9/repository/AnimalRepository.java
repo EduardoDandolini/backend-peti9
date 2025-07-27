@@ -16,4 +16,7 @@ public interface AnimalRepository extends CrudRepository<Animal, Long> {
 
     boolean existsByName(String name);
 
+    @Query("SELECT CASE WHEN COUNT(a) > 0 THEN true ELSE false END FROM Animal a WHERE a.name = :name AND a.animalGuardian.id = :guardianId")
+    boolean existsByNameAndAnimalGuardianId(@Param("name") String name, @Param("guardianId") Long guardianId);
+
 }
