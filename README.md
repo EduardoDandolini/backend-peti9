@@ -127,9 +127,12 @@ Projeto de API REST para gerenciamento de tutores e seus pets.
 A documentação está disponível no seguinte endereço:
 http://localhost:8080/swagger-ui/index.html (Caso subir em outra porta é só modificar onde está 8080)
 
-## ✅ Conclusão
+## Por que usei o Intellij ? 
+- Maior familiariedade com a IDE
+- Excelente ferramente de debug
 
-Esse laboratório demonstra a integração de tecnologias modernas com boas práticas de desenvolvimento backend e infraestrutura em nuvem (AWS).  
-Testes de casos de uso, deploy em EC2, e validações foram realizados com sucesso.
+## Dificuldade do Lab
+
+- O projeto proposto para mim teve dificuldade média devido a não possuir tanta familiariedade com a AWS, foi um desafio muito legal poder criar do zero uma EC2, escolhendo o SO, instalando o java e executando o JAR da aplicação.
 
 ---
