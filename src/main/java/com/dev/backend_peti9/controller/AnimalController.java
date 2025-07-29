@@ -21,50 +21,36 @@ public class AnimalController {
 
     @PostMapping
     @Operation(summary = "Save a new Animal", description = "Save a new Animal")
-    public void save(@RequestBody AnimalRequest request) {
-        try {
-            animalService.save(request);
-            ResponseEntity.ok().build();
-        } catch (Exception e) {
-            ResponseEntity.badRequest().body(e.getMessage());
-        }
+    public ResponseEntity<Void> save(@RequestBody AnimalRequest request) {
+        animalService.save(request);
+        return ResponseEntity.status(201).build();
     }
 
     @GetMapping("/{id}")
     @Operation(summary = "Get an Animal by id", description = "Get an Animal by id")
     public ResponseEntity<AnimalResponse> getAnimalById(@PathVariable Long id) {
-        try {
-            return ResponseEntity.ok(animalService.getAnimalById(id));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
+        AnimalResponse animal = animalService.getAnimalById(id);
+        return ResponseEntity.ok(animal);
     }
 
     @GetMapping("/name/{name}")
     @Operation(summary = "Get an Animal by name", description = "Get an Animal by name")
     public ResponseEntity<List<AnimalResponse>> getAnimalByLikedName(@PathVariable String name) {
-        try {
-            return ResponseEntity.ok(animalService.getAnimalByLikedName(name));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
+        List<AnimalResponse> animals = animalService.getAnimalByLikedName(name);
+        return ResponseEntity.ok(animals);
     }
 
     @PutMapping("/{id}")
     @Operation(summary = "Update an Animal", description = "Update an Animal")
-    public void updateAnimal(@PathVariable Long id, @RequestBody AnimalRequest request) {
-        try {
-            animalService.updateAnimal(id, request);
-            ResponseEntity.ok().build();
-        } catch (Exception e) {
-            ResponseEntity.badRequest().body(e.getMessage());
-        }
+    public ResponseEntity<Void> updateAnimal(@PathVariable Long id, @RequestBody AnimalRequest request) {
+        animalService.updateAnimal(id, request);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete an Animal by id", description = "Delete an Animal by id")
-    public void deleteAnimalById(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteAnimalById(@PathVariable Long id) {
         animalService.deleteAnimalById(id);
+        return ResponseEntity.noContent().build();
     }
-
 }

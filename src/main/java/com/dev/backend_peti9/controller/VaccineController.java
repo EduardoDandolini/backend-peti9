@@ -21,12 +21,8 @@ public class VaccineController {
 
     @PostMapping
     @Operation(summary = "Save a new Vaccine", description = "Save a new Vaccine")
-    public void save(@RequestBody VaccineRequest request) {
-        try {
-            vaccineService.save(request);
-            ResponseEntity.ok().build();
-        } catch (Exception e) {
-            ResponseEntity.badRequest().body(e.getMessage());
-        }
+    public ResponseEntity<Void> save(@RequestBody VaccineRequest request) {
+        vaccineService.save(request);
+        return ResponseEntity.status(201).build();
     }
 }

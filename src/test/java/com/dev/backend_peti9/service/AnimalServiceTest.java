@@ -90,7 +90,7 @@ class AnimalServiceTest {
         ValidationException exception = assertThrows(ValidationException.class,
                 () -> animalService.save(request));
 
-        assertEquals("Animal with name " + request.getName() + " already exists", exception.getMessage());
+        assertEquals("An animal named '" + request.getName() + "' is already registered for this guardian.", exception.getMessage());
         verify(animalRepository, never()).save(any(Animal.class));
     }
 

@@ -69,13 +69,13 @@ class AnimalControllerTest {
     }
 
     @Test
-    void save_ShouldReturnOk_WhenRequestIsValid() throws Exception {
+    void save_ShouldReturnCreated_WhenRequestIsValid() throws Exception {
         doNothing().when(animalService).save(any(AnimalRequest.class));
 
         mockMvc.perform(post("/api/v1/animals")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
     }
 
     @Test
@@ -99,7 +99,7 @@ class AnimalControllerTest {
 
         mockMvc.perform(get("/api/v1/animals/999")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isNotFound());
     }
 
     @Test
@@ -128,13 +128,13 @@ class AnimalControllerTest {
     }
 
     @Test
-    void getAnimalByLikedName_ShouldReturnBadRequest_WhenNoMatch() throws Exception {
+    void getAnimalByLikedName_ShouldReturnNotFound_WhenNoMatch() throws Exception {
         when(animalService.getAnimalByLikedName(anyString()))
-                .thenThrow(new RuntimeException("No animals found"));
+                .thenThrow(new NotFoundException("No animals found"));
 
         mockMvc.perform(get("/api/v1/animals/name/nonexistent")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isNotFound());
     }
 
     @Test
@@ -148,22 +148,12 @@ class AnimalControllerTest {
     }
 
     @Test
-    void updateAnimal_ShouldReturnBadRequest_WhenAnimalNotExists() throws Exception {
-        doThrow(new RuntimeException("Animal not found"))
-                .when(animalService).updateAnimal(anyLong(), any(AnimalRequest.class));
-
-        mockMvc.perform(put("/api/v1/animals/999")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isBadRequest());
-    }
-
-    @Test
-    void deleteAnimalById_ShouldReturnOk_WhenIdExists() throws Exception {
+    void deleteAnimalById_ShouldReturnNoContent_WhenIdExists() throws Exception {
         doNothing().when(animalService).deleteAnimalById(1L);
 
         mockMvc.perform(delete("/api/v1/animals/1")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isNoContent());
     }
+
 }

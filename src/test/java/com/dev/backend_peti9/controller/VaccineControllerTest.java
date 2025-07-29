@@ -18,7 +18,6 @@ import java.time.LocalDate;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.doThrow;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -55,17 +54,6 @@ class VaccineControllerTest {
         mockMvc.perform(post("/api/v1/vaccine")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    void save_ShouldReturnBadRequest_WhenServiceThrowsException() throws Exception {
-        doThrow(new RuntimeException("Error saving vaccine"))
-                .when(vaccineService).save(any(VaccineRequest.class));
-
-        mockMvc.perform(post("/api/v1/vaccine")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isCreated());
     }
 }

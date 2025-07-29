@@ -2,6 +2,7 @@ package com.dev.backend_peti9.controller;
 
 import com.dev.backend_peti9.dto.AnimalGuardianRequest;
 import com.dev.backend_peti9.dto.AnimalGuardianResponse;
+import com.dev.backend_peti9.exception.NotFoundException;
 import com.dev.backend_peti9.service.AnimalGuardianService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -69,7 +70,7 @@ class AnimalGuardianControllerTest {
         mockMvc.perform(post("/api/v1/animal-guardian")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
     }
 
     @Test
@@ -87,11 +88,11 @@ class AnimalGuardianControllerTest {
     @Test
     void getAnimalGuardianById_ShouldReturnNotFound_WhenIdDoesNotExist() throws Exception {
         when(animalGuardianService.getAnimalGuardianById(999L))
-                .thenThrow(new RuntimeException("AnimalGuardian not found"));
+                .thenThrow(new NotFoundException("AnimalGuardian not found"));
 
         mockMvc.perform(get("/api/v1/animal-guardian/999")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isNotFound());
     }
 
     @Test
@@ -113,10 +114,10 @@ class AnimalGuardianControllerTest {
     @Test
     void getAnimalGuardianByLikedName_ShouldReturnBadRequest_WhenNoMatch() throws Exception {
         when(animalGuardianService.getAnimalGuardianByLikedName(anyString()))
-                .thenThrow(new RuntimeException("No matches found"));
+                .thenThrow(new NotFoundException("No matches found"));
 
         mockMvc.perform(get("/api/v1/animal-guardian/name/nonexistent")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isNotFound());
     }
 }

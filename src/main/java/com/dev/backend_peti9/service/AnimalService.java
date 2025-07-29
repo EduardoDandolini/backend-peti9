@@ -25,7 +25,7 @@ public class AnimalService {
                 .orElseThrow(() -> new NotFoundException("AnimalGuardian with id " + request.getAnimalGuardianId() + " not found"));
 
         if (animalRepository.existsByNameAndAnimalGuardianId(request.getName(), request.getAnimalGuardianId())) {
-            throw new ValidationException("Animal with name " + request.getName() + " already exists");
+            throw new ValidationException("An animal named '" + request.getName() + "' is already registered for this guardian.");
         }
 
         animalRepository.save(Animal.builder()
@@ -54,18 +54,15 @@ public class AnimalService {
                 .toList();
     }
 
-    //TODO Verificar por que não está atualizando o registro
     public void updateAnimal(Long id, AnimalRequest request) {
         Animal animal = animalRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Animal with id " + request.getId() + " not found"));
-        animalRepository.save(Animal.builder()
-                .name(request.getName())
-                .race(request.getRace())
-                .birthDate(request.getBirthDate())
-                .color(request.getColor())
-                .weight(request.getWeight())
-                .animalGuardian(animal.getAnimalGuardian())
-                .build());
+        animal.setName(request.getName());
+        animal.setRace(request.getRace());
+        animal.setBirthDate(request.getBirthDate());
+        animal.setColor(request.getColor());
+        animal.setWeight(request.getWeight());
+        animalRepository.save(animal);
     }
 
     public void deleteAnimalById(Long id) {

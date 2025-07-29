@@ -21,33 +21,22 @@ public class AnimalGuardianController {
 
     @PostMapping
     @Operation(summary = "Save a new AnimalGuardian", description = "Save a new AnimalGuardian")
-    public ResponseEntity<Object> save(@RequestBody AnimalGuardianRequest request) {
-        try {
-            animalGuardianService.save(request);
-            return ResponseEntity.ok().build();
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+    public ResponseEntity<Void> save(@RequestBody AnimalGuardianRequest request) {
+        animalGuardianService.save(request);
+        return ResponseEntity.status(201).build();
     }
 
     @GetMapping("/{id}")
     @Operation(summary = "Get an AnimalGuardian by id", description = "Get an AnimalGuardian by id")
     public ResponseEntity<AnimalGuardianResponse> getAnimalGuardianById(@PathVariable Long id) {
-        try {
-            return ResponseEntity.ok(animalGuardianService.getAnimalGuardianById(id));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().build();
-        }
+        AnimalGuardianResponse response = animalGuardianService.getAnimalGuardianById(id);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/name/{name}")
     @Operation(summary = "Get an AnimalGuardian by name", description = "Get an AnimalGuardian by name")
     public ResponseEntity<List<AnimalGuardianResponse>> getAnimalGuardianByLikedName(@PathVariable String name) {
-        try {
-            return ResponseEntity.ok(animalGuardianService.getAnimalGuardianByLikedName(name));
-        } catch (Exception e) {
-           return ResponseEntity.badRequest().build();
-        }
+        List<AnimalGuardianResponse> response = animalGuardianService.getAnimalGuardianByLikedName(name);
+        return ResponseEntity.ok(response);
     }
-
 }

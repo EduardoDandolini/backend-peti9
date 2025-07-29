@@ -73,10 +73,8 @@ class VaccineServiceTest {
 
     @Test
     void save_ShouldThrowNotFoundException_WhenAnimalNotExists() {
-        // Arrange
         when(animalRepository.findById(1L)).thenReturn(Optional.empty());
 
-        // Act & Assert
         NotFoundException exception = assertThrows(NotFoundException.class,
                 () -> vaccineService.save(vaccineRequest));
 
@@ -86,14 +84,11 @@ class VaccineServiceTest {
 
     @Test
     void save_ShouldSetVaccineAnimal_WhenSaving() {
-        // Arrange
         when(animalRepository.findById(1L)).thenReturn(Optional.of(animal));
         when(vaccineRepository.save(any(Vaccine.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        // Act
         vaccineService.save(vaccineRequest);
 
-        // Assert
         ArgumentCaptor<Vaccine> vaccineCaptor = ArgumentCaptor.forClass(Vaccine.class);
         verify(vaccineRepository).save(vaccineCaptor.capture());
 
