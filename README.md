@@ -17,6 +17,10 @@ Projeto de API REST para gerenciamento de tutores e seus pets.
 
 ---
 
+## Cobertura de testes de mais de 50%
+- Feito a implementação de testes unitarios da camada controller e service, com cobertura total de 61% 
+<img width="658" height="450" alt="CoberturaTestes" src="https://github.com/user-attachments/assets/c317aa2c-edf9-4fee-9e9d-2f0a28e06c00" />
+
 ## ☁️ Testes Funcionais - EC2
 
 ### ✅ 1. Versão do Java em execução
@@ -90,6 +94,38 @@ Projeto de API REST para gerenciamento de tutores e seus pets.
 <img src="https://github.com/user-attachments/assets/cfce5aa8-fe20-4e3b-982a-09913957511d" alt="NaoPermiteDoisPetsParaMesmoTutorComMesmoNome" width="100%" />
 
 ---
+
+## Gráficos do SonarQube
+### ✅ Gráfico de Qualidade Geral
+![Gráfico Geral](https://github.com/user-attachments/assets/1dc98fcd-f886-408a-81a0-8d370d3e815d)
+
+### 🐞 Gráfico de Issues
+![Gráfico Issues](https://github.com/user-attachments/assets/76cd9977-c30b-448d-93bc-5db57453e7cd)
+
+### 📊 Gráfico de Cobertura de Testes (Coverage)
+![Gráfico Coverage](https://github.com/user-attachments/assets/b97a36b7-5d0f-4258-8975-edcf2612a2ce)
+
+### ♻️ Gráfico de Código Duplicado (Duplications)
+![Gráfico Duplications](https://github.com/user-attachments/assets/ea4c9461-c81f-4a17-ab82-d1cb7c67654a)
+
+> 💡 **Observação:** Para que a cobertura de testes apareça corretamente, é necessário gerar o relatório com o plugin **JaCoCo**.
+
+---
+
+## ⚠️ Pontos de Melhoria Identificados
+
+- Criar constante para a string `"Not Found"`, que aparece 4 vezes na classe `AnimalService`  
+  ![Sugestão constante](https://github.com/user-attachments/assets/60e38de7-28e9-47cc-b002-57a321ea827e)
+
+- Adicionar comentário explicando o motivo do método `contextLoads()` estar vazio na classe `BackendPeti9ApplicationTests`  
+  ![Comentário contextLoads](https://github.com/user-attachments/assets/a4c9f914-4885-4b2e-a619-ebf11968b1c2)
+
+---
+
+## 📚 Documentação da API - Swagger
+
+A documentação está disponível no seguinte endereço:
+http://localhost:8080/swagger-ui/index.html (Caso subir em outra porta é só modificar onde está 8080)
 
 ## ✅ Conclusão
 
