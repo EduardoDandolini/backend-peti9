@@ -45,6 +45,7 @@ Testes De Caso de Uso:
 <img width="1537" height="876" alt="ConsultarPetsComNomeBel2" src="https://github.com/user-attachments/assets/e09fb5c7-8020-462c-848c-4b6fceb95aab" />
 
 10 - Editar os dados do pet Belinha, alterando seu nome para Bonitinha
+<img width="1537" height="874" alt="EditarNomeBelinhaParaBonitinha" src="https://github.com/user-attachments/assets/ab7cdd35-b42f-49d7-8cac-78183e557142" />
 
 11 - Consultar os pets com o nome bel novamente
 <img width="1538" height="875" alt="ConsultarNovamenteNomeBelAposEdicao" src="https://github.com/user-attachments/assets/1da1faaf-b18f-467b-bcb4-779e04784cfa" />
