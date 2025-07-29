@@ -1,98 +1,99 @@
-Lab Engenharia Peti9
+# 🐾 Lab Engenharia PETI9
 
-Stack Utilizada: 
-- Java 17
-- Spring Boot 3.5.4
-- Maven
-- Build com JAR
-- PostgreSQL
-- AWS EC2
-- SonarQube
-- Swagger
+Projeto de API REST para gerenciamento de tutores e seus pets.
 
-Testes Funcionais EC2:
+---
 
-1 - Versão do java em execução
-<img width="1456" height="480" alt="VersãoJavaEC2" src="https://github.com/user-attachments/assets/7d68e2e0-677b-46e6-9208-0e826dd862c6" />
+## 🛠️ Stack Utilizada
 
-2 - Ip válido da EC2 
-<img width="1921" height="382" alt="IpPublicoEC2" src="https://github.com/user-attachments/assets/af98bdc0-f3a2-4019-a338-a65f77da6fd0" />
+- ☕ **Java 17**
+- 🌱 **Spring Boot 3.5.4**
+- 📦 **Maven**
+- 📄 Build com **JAR**
+- 🐘 **PostgreSQL**
+- ☁️ **AWS EC2**
+- 🧪 **SonarQube**
+- 📚 **Swagger**
 
-3 - DNS externo da EC2 
-<img width="1675" height="436" alt="InformacoesInstaciaEc2" src="https://github.com/user-attachments/assets/ce126f7c-6a76-4289-8a37-f1d22dfccdf3" />
+---
 
-4 - Consultar as regras de entrada e saída do security group da EC2
-<img width="1656" height="492" alt="RegrasEntradaEC2" src="https://github.com/user-attachments/assets/3a3e2d0d-1375-454e-bfa1-8975e99185db" />
-<img width="1652" height="217" alt="RegrasSaidaEC2" src="https://github.com/user-attachments/assets/07b8d559-0c1b-4f06-b915-538b512d9869" />
+## ☁️ Testes Funcionais - EC2
 
+### ✅ 1. Versão do Java em execução
+<img src="https://github.com/user-attachments/assets/7d68e2e0-677b-46e6-9208-0e826dd862c6" alt="VersãoJavaEC2" width="100%" />
 
-Testes De Caso de Uso: 
+### ✅ 2. IP válido da EC2
+<img src="https://github.com/user-attachments/assets/af98bdc0-f3a2-4019-a338-a65f77da6fd0" alt="IpPublicoEC2" width="100%" />
 
-1 - Criar um novo tutor com o nome João Pedro
-<img width="1331" height="618" alt="CriarNovoTutor" src="https://github.com/user-attachments/assets/532b2eac-e0ff-4944-a813-2a133f1c9ba8" />
+### ✅ 3. DNS externo da EC2
+<img src="https://github.com/user-attachments/assets/ce126f7c-6a76-4289-8a37-f1d22dfccdf3" alt="InformacoesInstaciaEc2" width="100%" />
 
-2 - Criar os Pets do tutor João Pedro com o nome Belinha e Belezinha
-<img width="1333" height="612" alt="CriarNovoPetBelinha" src="https://github.com/user-attachments/assets/ae890487-f15a-4cb5-80c8-2a22c7301fda" />
-<img width="1331" height="620" alt="CriarNovoPetBelezinha" src="https://github.com/user-attachments/assets/c7f2be44-31a6-4109-9bf0-375c00994954" />
+### ✅ 4. Regras de segurança (Security Group)
 
+#### 🔐 Regras de Entrada
+<img src="https://github.com/user-attachments/assets/3a3e2d0d-1375-454e-bfa1-8975e99185db" alt="RegrasEntradaEC2" width="100%" />
 
-3 - Criar um tutor chamado João Carlos
-<img width="1342" height="613" alt="CriarNovoTutorJoaoCarlos" src="https://github.com/user-attachments/assets/996f03d2-e1ac-4b81-93d9-8290a9d25097" />
+#### 🔓 Regras de Saída
+<img src="https://github.com/user-attachments/assets/07b8d559-0c1b-4f06-b915-538b512d9869" alt="RegrasSaidaEC2" width="100%" />
 
-4 - Criar o Pet do tutor João Carlos com o nome Belmira
-<img width="1330" height="622" alt="CriarNovoPetBelmira" src="https://github.com/user-attachments/assets/3cdb3766-93d1-48c8-8a6b-73f9a61db19d" />
+---
 
-5 - Consultar dados do primeiro tutor 
-<img width="1542" height="881" alt="ConsultarPrimeiroTutor" src="https://github.com/user-attachments/assets/ee45bb10-0c49-4b25-9efd-ae22a009c338" />
-<img width="1536" height="873" alt="ContinuacaoConsultaPrimeiroTutor" src="https://github.com/user-attachments/assets/bca8a997-029f-49a6-ba64-0a6e159e62f6" />
+## 🧪 Testes de Casos de Uso
 
-6 - Consultar os dados do segundo tutor
-<img width="1538" height="793" alt="ConsultarDadosSegundoTutor" src="https://github.com/user-attachments/assets/9ef99672-b652-47b4-8eea-3b23a1959b9c" />
+### 1. Criar um novo tutor: **João Pedro**
+<img src="https://github.com/user-attachments/assets/532b2eac-e0ff-4944-a813-2a133f1c9ba8" alt="CriarNovoTutor" width="100%" />
 
-7 - Consultar os tutores com o nome João
-<img width="1536" height="877" alt="ConsultarTutoresComNomeJoao1" src="https://github.com/user-attachments/assets/6cd42171-e265-4d84-8273-74897c1d245e" />
-<img width="1540" height="881" alt="ConsultarTutoresComNomeJoao2" src="https://github.com/user-attachments/assets/07b3d40d-632d-4853-9ed6-8c269f8b191d" />
+### 2. Criar pets: **Belinha** e **Belezinha** (tutor: João Pedro)
+<img src="https://github.com/user-attachments/assets/ae890487-f15a-4cb5-80c8-2a22c7301fda" alt="CriarNovoPetBelinha" width="100%" />
+<img src="https://github.com/user-attachments/assets/c7f2be44-31a6-4109-9bf0-375c00994954" alt="CriarNovoPetBelezinha" width="100%" />
 
-8 - Consultar o primeiro pet do João Pedro
-<img width="1537" height="871" alt="ConsultarPrimeiroPetDoPrimeiroTutor" src="https://github.com/user-attachments/assets/e7fda02a-815a-4909-8406-61c6a9408efa" />
+### 3. Criar um novo tutor: **João Carlos**
+<img src="https://github.com/user-attachments/assets/996f03d2-e1ac-4b81-93d9-8290a9d25097" alt="CriarNovoTutorJoaoCarlos" width="100%" />
 
-9 - Consultar os pets com o nome bel
-<img width="1540" height="875" alt="ConsultarPetsComNomeBel1" src="https://github.com/user-attachments/assets/865fcc8b-005c-4a2a-922a-aeea64376459" />
-<img width="1537" height="876" alt="ConsultarPetsComNomeBel2" src="https://github.com/user-attachments/assets/e09fb5c7-8020-462c-848c-4b6fceb95aab" />
+### 4. Criar pet: **Belmira** (tutor: João Carlos)
+<img src="https://github.com/user-attachments/assets/3cdb3766-93d1-48c8-8a6b-73f9a61db19d" alt="CriarNovoPetBelmira" width="100%" />
 
-10 - Editar os dados do pet Belinha, alterando seu nome para Bonitinha
-<img width="1537" height="874" alt="EditarNomeBelinhaParaBonitinha" src="https://github.com/user-attachments/assets/ab7cdd35-b42f-49d7-8cac-78183e557142" />
+### 5. Consultar dados do tutor **João Pedro**
+<img src="https://github.com/user-attachments/assets/ee45bb10-0c49-4b25-9efd-ae22a009c338" alt="ConsultarPrimeiroTutor" width="100%" />
+<img src="https://github.com/user-attachments/assets/bca8a997-029f-49a6-ba64-0a6e159e62f6" alt="ContinuacaoConsultaPrimeiroTutor" width="100%" />
 
-11 - Consultar os pets com o nome bel novamente
-<img width="1538" height="875" alt="ConsultarNovamenteNomeBelAposEdicao" src="https://github.com/user-attachments/assets/1da1faaf-b18f-467b-bcb4-779e04784cfa" />
+### 6. Consultar dados do tutor **João Carlos**
+<img src="https://github.com/user-attachments/assets/9ef99672-b652-47b4-8eea-3b23a1959b9c" alt="ConsultarDadosSegundoTutor" width="100%" />
 
-12 - Apagar o pet Belezinha
-<img width="1540" height="881" alt="ApagarPetBelezinha" src="https://github.com/user-attachments/assets/92e278e0-a23d-4499-aa04-69ebbd3e1ebf" />
+### 7. Consultar tutores com o nome **João**
+<img src="https://github.com/user-attachments/assets/6cd42171-e265-4d84-8273-74897c1d245e" alt="ConsultarTutoresComNomeJoao1" width="100%" />
+<img src="https://github.com/user-attachments/assets/07b3d40d-632d-4853-9ed6-8c269f8b191d" alt="ConsultarTutoresComNomeJoao2" width="100%" />
 
-13 - Consultar os pets com o nome bel novamente
-<img width="1538" height="879" alt="ConsultarNovamenteNomeBelAposExclusao" src="https://github.com/user-attachments/assets/da9b39d2-8a6c-4e59-b243-4759ac89fd8b" />
+### 8. Consultar o primeiro pet do tutor **João Pedro**
+<img src="https://github.com/user-attachments/assets/e7fda02a-815a-4909-8406-61c6a9408efa" alt="ConsultarPrimeiroPetDoPrimeiroTutor" width="100%" />
 
-14 - Validação dois tutores com o mesmo nome 
-<img width="1541" height="876" alt="2TutoresComMesmoNome" src="https://github.com/user-attachments/assets/ac836380-1d87-4cf1-a5dd-66298503862d" />
+### 9. Consultar pets com nome parcial: **bel**
+<img src="https://github.com/user-attachments/assets/865fcc8b-005c-4a2a-922a-aeea64376459" alt="ConsultarPetsComNomeBel1" width="100%" />
+<img src="https://github.com/user-attachments/assets/e09fb5c7-8020-462c-848c-4b6fceb95aab" alt="ConsultarPetsComNomeBel2" width="100%" />
 
-15 - Validação não permite dois pets com o mesmo nome para o mesmo tutor
-<img width="1541" height="879" alt="NaoPermiteDoisPetsParaMesmoTutorComMesmoNome" src="https://github.com/user-attachments/assets/cfce5aa8-fe20-4e3b-982a-09913957511d" />
+### 10. Editar nome do pet **Belinha → Bonitinha**
+<img src="https://github.com/user-attachments/assets/ab7cdd35-b42f-49d7-8cac-78183e557142" alt="EditarNomeBelinhaParaBonitinha" width="100%" />
 
+### 11. Consultar novamente os pets com nome **bel**
+<img src="https://github.com/user-attachments/assets/1da1faaf-b18f-467b-bcb4-779e04784cfa" alt="ConsultarNovamenteNomeBelAposEdicao" width="100%" />
 
+### 12. Apagar pet **Belezinha**
+<img src="https://github.com/user-attachments/assets/92e278e0-a23d-4499-aa04-69ebbd3e1ebf" alt="ApagarPetBelezinha" width="100%" />
 
+### 13. Consultar pets com nome **bel** após exclusão
+<img src="https://github.com/user-attachments/assets/da9b39d2-8a6c-4e59-b243-4759ac89fd8b" alt="ConsultarNovamenteNomeBelAposExclusao" width="100%" />
 
+### 14. Validação: dois tutores com mesmo nome
+<img src="https://github.com/user-attachments/assets/ac836380-1d87-4cf1-a5dd-66298503862d" alt="2TutoresComMesmoNome" width="100%" />
 
+### 15. Validação: não permitir dois pets com o mesmo nome para o mesmo tutor
+<img src="https://github.com/user-attachments/assets/cfce5aa8-fe20-4e3b-982a-09913957511d" alt="NaoPermiteDoisPetsParaMesmoTutorComMesmoNome" width="100%" />
 
+---
 
+## ✅ Conclusão
 
+Esse laboratório demonstra a integração de tecnologias modernas com boas práticas de desenvolvimento backend e infraestrutura em nuvem (AWS).  
+Testes de casos de uso, deploy em EC2, e validações foram realizados com sucesso.
 
-
-
-
-
-
-
-
- 
-
-
+---
