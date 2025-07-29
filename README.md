@@ -10,6 +10,22 @@ Stack Utilizada:
 - SonarQube
 - Swagger
 
+Testes Funcionais EC2:
+
+1 - Versão do java em execução
+<img width="1456" height="480" alt="VersãoJavaEC2" src="https://github.com/user-attachments/assets/7d68e2e0-677b-46e6-9208-0e826dd862c6" />
+
+2 - Ip válido da EC2 
+<img width="1921" height="382" alt="IpPublicoEC2" src="https://github.com/user-attachments/assets/af98bdc0-f3a2-4019-a338-a65f77da6fd0" />
+
+3 - DNS externo da EC2 
+<img width="1675" height="436" alt="InformacoesInstaciaEc2" src="https://github.com/user-attachments/assets/ce126f7c-6a76-4289-8a37-f1d22dfccdf3" />
+
+4 - Consultar as regras de entrada e saída do security group da EC2
+<img width="1656" height="492" alt="RegrasEntradaEC2" src="https://github.com/user-attachments/assets/3a3e2d0d-1375-454e-bfa1-8975e99185db" />
+<img width="1652" height="217" alt="RegrasSaidaEC2" src="https://github.com/user-attachments/assets/07b8d559-0c1b-4f06-b915-538b512d9869" />
+
+
 Testes De Caso de Uso: 
 
 1 - Criar um novo tutor com o nome João Pedro
