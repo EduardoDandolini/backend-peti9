@@ -10,6 +10,7 @@ Projeto de API REST para gerenciamento de tutores e seus pets.
 - 🌱 **Spring Boot 3.5.4**
 - 📦 **Maven**
 - 📄 Build com **JAR**
+- 📦 **Docker** 
 - 🐘 **PostgreSQL**
 - ☁️ **AWS EC2**
 - 🧪 **SonarQube**
