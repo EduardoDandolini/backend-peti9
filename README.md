@@ -137,3 +137,8 @@ http://localhost:8080/swagger-ui/index.html (Caso subir em outra porta é só mo
 - O projeto proposto para mim teve dificuldade média devido a não possuir tanta familiariedade com a AWS, foi um desafio muito legal poder criar do zero uma EC2, escolhendo o SO, instalando o java e executando o JAR da aplicação.
 
 ---
+
+## Implementações Futuras
+- Adicionar o Jacoco
+- Criar os testes da camada repository
+- Adicionar validações para criar novos registros
