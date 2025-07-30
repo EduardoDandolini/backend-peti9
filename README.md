@@ -109,7 +109,7 @@ Projeto de API REST para gerenciamento de tutores e seus pets.
 ### ♻️ Gráfico de Código Duplicado (Duplications)
 ![Gráfico Duplications](https://github.com/user-attachments/assets/ea4c9461-c81f-4a17-ab82-d1cb7c67654a)
 
-> 💡 **Observação:** Para que a cobertura de testes apareça corretamente, é necessário gerar o relatório com o plugin **JaCoCo**.
+> 💡 **Observação:** **Para que a cobertura de testes apareça corretamente, é necessário implementar o Jacoco para gerar um relatório a ser lido pelo sonar**.
 
 ---
 
