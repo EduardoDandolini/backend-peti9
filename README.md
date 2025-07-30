@@ -130,7 +130,7 @@ http://localhost:8080/swagger-ui/index.html (Caso subir em outra porta é só mo
 
 ## Por que usei o Intellij ? 
 - Maior familiariedade com a IDE
-- Excelente ferramente de debug
+- Excelente ferramenta de debug
 
 ## Dificuldade do Lab
 
