@@ -43,7 +43,7 @@ Projeto de API REST para gerenciamento de tutores e seus pets.
 
 ---
 
-## 🧪 Testes de Casos de Uso
+## 🧪 Testes de Casos de Uso (Postman Collection: [Uploading Peti9.postman_collection.json…]())
 
 ### 1. Criar um novo tutor: **João Pedro**
 <img src="https://github.com/user-attachments/assets/532b2eac-e0ff-4944-a813-2a133f1c9ba8" alt="CriarNovoTutor" width="100%" />
