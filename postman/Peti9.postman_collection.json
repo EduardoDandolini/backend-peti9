@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "27c6bfbd-f34d-4ba9-b866-f4c1fb384459",
+		"name": "Peti9",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27331264",
+		"_collection_link": "https://universal-water-715417.postman.co/workspace/Team-Workspace~72040d2d-f297-40a6-884f-ce4455365c0d/collection/27331264-27c6bfbd-f34d-4ba9-b866-f4c1fb384459?action=share&source=collection_link&creator=27331264"
+	},
+	"item": [
+		{
+			"name": "Create a new AnimalGuardian",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Eduardo\",\n    \"surname\":\"Edu\",\n    \"birthDate\": \"06/12/2004\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/animal-guardian",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"animal-guardian"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new Animal",
+			"request": {
+				"method": "POST",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get AnimalGuardian By Id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get AnimalGuardian By Name",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create a vaccine",
+			"request": {
+				"method": "POST",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get Animal By Id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get Animal By Name",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Update Animal",
+			"request": {
+				"method": "PUT",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Animal",
+			"request": {
+				"method": "DELETE",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
